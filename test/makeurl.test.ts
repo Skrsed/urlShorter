@@ -1,12 +1,21 @@
-import { app } from '../src/app'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import { app } from '../src/app'
 import { Shorter } from '../src/model'
+import { appConfig } from '../src/utils'
 
+dotenv.config({path: `${__dirname}/../.env`})
+
+const {
+    mongoTestPort,
+    mongoUser,
+    mongoPassword
+} = appConfig()
 const server = app()
 
 beforeAll(async() => {
     await server.ready(),
-    await mongoose.connect('mongodb://root:example@localhost:27017')
+    await mongoose.connect(`mongodb://${mongoUser}:${mongoPassword}@localhost:${mongoTestPort}`)
     await Shorter.collection.drop()
 })
 

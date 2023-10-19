@@ -1,5 +1,14 @@
 export const defaultUrlLength = 8
 export const maxLength = 30
+export const appConfig = () => {
+    return {
+        appPort: process.env.APP_PORT,
+        mongoPort: process.env.MONGO_PORT,
+        mongoTestPort: process.env.MONGO_TEST_PORT,
+        mongoUser: process.env.MONGO_INITDB_ROOT_USERNAME,
+        mongoPassword: process.env.MONGO_INITDB_ROOT_PASSWORD
+    }
+}
 
 export const checkURL = (url: string): boolean => {
     // based on
