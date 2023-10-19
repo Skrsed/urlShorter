@@ -9,6 +9,6 @@ export interface IShorter {
 export const shorterSchema = new Schema<IShorter>({
     id: { type: String, required: true },
     url: { type: String, required: true }
-});
+})
 
-export const Shorter = model<IShorter>('Shorter', shorterSchema);
+export const Shorter = model<IShorter>('Shorter', shorterSchema)

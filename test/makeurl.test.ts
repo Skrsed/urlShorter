@@ -16,7 +16,7 @@ afterAll(async() => {
 })
 
 test('GET `/makeurl` empty', async () => {
-    const {statusCode} = await server.inject({
+    const { statusCode } = await server.inject({
         method: 'POST',
         url: '/makeurl'
     })
@@ -25,7 +25,7 @@ test('GET `/makeurl` empty', async () => {
 })
 
 test('GET `/makeurl` wrong url', async () => {
-    const {statusCode} = await server.inject({
+    const { statusCode } = await server.inject({
         method: 'POST',
         url: '/makeurl',
         body: { url: 'fullycrap' }
@@ -35,7 +35,7 @@ test('GET `/makeurl` wrong url', async () => {
 })
 
 test('GET `/makeurl` wrong id (too long)', async () => {
-    const {statusCode} = await server.inject({
+    const { statusCode } = await server.inject({
         method: 'POST',
         url: '/makeurl',
         body: {
@@ -48,7 +48,7 @@ test('GET `/makeurl` wrong id (too long)', async () => {
 })
 
 test('GET `/makeurl` wrong id (wrong format)', async () => {
-    const {statusCode} = await server.inject({
+    const { statusCode } = await server.inject({
         method: 'POST',
         url: '/makeurl',
         body: {

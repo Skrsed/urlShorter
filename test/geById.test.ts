@@ -22,7 +22,7 @@ test('GET `/:id` wrong url', async () => {
     })
 
     expect(statusCode).toEqual(404)
-  })
+})
 
 test('GET `/:id` correct url', async () => {
     const redirectTo = 'https://google.com'
@@ -34,7 +34,7 @@ test('GET `/:id` correct url', async () => {
     })
 
     const { url } = JSON.parse(payload)
-    const relativeUrl = url.match(/[^\/]*(?=$)/i).shift()
+    const relativeUrl = url.match(/[^/]*(?=$)/i).shift()
 
     const { headers: { location } } = await server.inject({
         method: 'GET',
@@ -42,9 +42,9 @@ test('GET `/:id` correct url', async () => {
     })
 
     expect(location).toEqual(redirectTo)
-  })
+})
 
-  test('GET `/:id` correct url without redirect', async () => {
+test('GET `/:id` correct url without redirect', async () => {
     const { payload } = await server.inject({
         method: 'POST',
         url: '/makeurl',
@@ -52,7 +52,7 @@ test('GET `/:id` correct url', async () => {
     })
 
     const { url } = JSON.parse(payload)
-    const relativeUrl = url.match(/[^\/]*(?=$)/i).shift()
+    const relativeUrl = url.match(/[^/]*(?=$)/i).shift()
 
     const { statusCode } = await server.inject({
         method: 'GET',
@@ -61,4 +61,4 @@ test('GET `/:id` correct url', async () => {
     })
 
     expect(statusCode).toEqual(200)
-  })
+})

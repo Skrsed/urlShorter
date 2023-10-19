@@ -1,9 +1,9 @@
 import fp from 'fastify-plugin'
 import { FastifyInstance } from 'fastify'
-import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid'
 import { Shorter } from './model'
 import { IdPayload, UrlPayload, HttpError } from './types'
-import { defaultUrlLength, checkURL, maxLength} from './utils';
+import { defaultUrlLength, checkURL, maxLength } from './utils'
 
 type ByID = {
     Querystring: { redirect: string },
@@ -39,7 +39,7 @@ const ShorterRoutes = async(server: FastifyInstance) => {
 
     server.post<MakeUrl>(
         '/makeurl',
-        async ({body: { url, id } = {}, protocol, hostname }, reply) => {
+        async ({ body: { url, id } = {}, protocol, hostname }, reply) => {
             const origin = `${protocol}://${hostname}`
             if(!checkURL(url)) {
                 return reply.status(400).send({
@@ -48,7 +48,6 @@ const ShorterRoutes = async(server: FastifyInstance) => {
             }
 
             if (id?.length >= maxLength) {
-                console.log('test')
                 return reply.status(400).send({
                     // TODO: REFACTOR! MB SWAGGER?
                     err: 'ID is too long'

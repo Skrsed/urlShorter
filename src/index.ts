@@ -1,5 +1,9 @@
 import mongoose from 'mongoose'
 import { app } from './app'
+import pino from 'pino'
+import pretty from 'pino-pretty'
+
+const logger = pino(pretty())
 
 mongoose.connect('mongodb://root:example@localhost:27017')
 
@@ -8,5 +12,5 @@ app().listen({ port: 8088 }, (err, address) => {
         console.error(err)
         process.exit(1)
     }
-    console.log(`Server listening at ${address}`)
+    logger.info(`Server listening at ${address}`)
 })
