@@ -7,17 +7,18 @@
     "allowJs": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*"]
     },
-
+    "noEmit": true,
     "noImplicitAny": false,
     "lib": ["es6"]
-  }
+  },
+  "exclude": ["./test/*"]
 }
