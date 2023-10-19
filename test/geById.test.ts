@@ -5,7 +5,7 @@ import { Shorter } from '../src/model'
 import { appConfig } from '../src/utils'
 
 
-dotenv.config({path: `${__dirname}/../.env`})
+dotenv.config({ path: `${__dirname}/../.env` })
 const {
     mongoTestPort,
     mongoUser,

@@ -2,10 +2,10 @@ import mongoose from 'mongoose'
 import { app } from './app'
 import pino from 'pino'
 import pretty from 'pino-pretty'
-import {appConfig} from './utils'
+import { appConfig } from './utils'
 import dotenv from 'dotenv'
 
-dotenv.config({path: `${__dirname}/../.env`})
+dotenv.config({ path: `${__dirname}/../.env` })
 
 const {
     appPort,

@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node index.js",
-    "seed:init": "ts-node ./src/seeds/init.ts",
     "dev": "nodemon --watch src --ext ts,json --exec node -r ts-node/register src/index.ts",
     "test": "jest --detectOpenHandles"
   },
